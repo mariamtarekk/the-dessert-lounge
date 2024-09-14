@@ -38,6 +38,7 @@ class LoginScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print(value);
                       },
@@ -49,6 +50,7 @@ class LoginScreen extends StatelessWidget {
                               BorderSide(color: Colors.black, width: 1.0),
                         ),
                         labelText: "Email Address",
+                        labelStyle: TextStyle(color: Colors.black),
                       ),
                     ),
                   ),
@@ -58,6 +60,7 @@ class LoginScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print(value);
                       },
@@ -75,6 +78,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                         border: const OutlineInputBorder(),
                         labelText: "Password",
+                        labelStyle: const TextStyle(color: Colors.black),
                         focusedBorder: const OutlineInputBorder(
                           borderSide:
                               BorderSide(color: Colors.black, width: 1.0),
@@ -89,6 +93,17 @@ class LoginScreen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 50, vertical: 0),
                         child: TextButton(
+                          style: ButtonStyle(
+                            overlayColor:
+                                MaterialStateProperty.resolveWith<Color?>(
+                                    (Set<MaterialState> states) {
+                              if (states.contains(MaterialState.pressed)) {
+                                return Colors.black
+                                    .withOpacity(0.1); // Color when pressed
+                              }
+                              return null; // Default behavior if not pressed
+                            }),
+                          ),
                           onPressed: () {},
                           child: const Text(
                             "Forgot Password?",
@@ -129,6 +144,17 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       TextButton(
+                        style: ButtonStyle(
+                          overlayColor:
+                              MaterialStateProperty.resolveWith<Color?>(
+                                  (Set<MaterialState> states) {
+                            if (states.contains(MaterialState.pressed)) {
+                              return Colors.black
+                                  .withOpacity(0.1); // Color when pressed
+                            }
+                            return null; // Default behavior if not pressed
+                          }),
+                        ),
                         onPressed: () {},
                         child: const Text(
                           "Register",

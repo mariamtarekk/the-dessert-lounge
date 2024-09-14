@@ -42,6 +42,7 @@ class SignupScreen extends StatelessWidget{
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print("value");
                       },
@@ -52,6 +53,9 @@ class SignupScreen extends StatelessWidget{
                           borderSide: BorderSide(color: Colors.black, width: 1.0),
                         ),
                         labelText: "First Name",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
@@ -61,6 +65,7 @@ class SignupScreen extends StatelessWidget{
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print("value");
                       },
@@ -71,6 +76,9 @@ class SignupScreen extends StatelessWidget{
                           borderSide: BorderSide(color: Colors.black, width: 1.0),
                         ),
                         labelText: "Second Name",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
@@ -80,6 +88,7 @@ class SignupScreen extends StatelessWidget{
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print(value);
                       },
@@ -91,6 +100,9 @@ class SignupScreen extends StatelessWidget{
                           BorderSide(color: Colors.black, width: 1.0),
                         ),
                         labelText: "Email Address",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
@@ -100,6 +112,7 @@ class SignupScreen extends StatelessWidget{
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print(value);
                       },
@@ -111,6 +124,9 @@ class SignupScreen extends StatelessWidget{
                           BorderSide(color: Colors.black, width: 1.0),
                         ),
                         labelText: "Birthday",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
@@ -121,11 +137,13 @@ class SignupScreen extends StatelessWidget{
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: DropdownButtonFormField<String>(
                       decoration: const InputDecoration(
-                        labelText: 'Gender', // Label for the dropdown
+                        labelText: 'Gender',
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),// Label for the dropdown
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide:
-                          BorderSide(color: Colors.black, width: 1.0),
+                          borderSide: BorderSide(color: Colors.black, width: 1.0),
                         ),// Add border to make it look like a TextFormField
                       ),
                       value: _selectedValue, // Initial value for the dropdown
@@ -154,6 +172,7 @@ class SignupScreen extends StatelessWidget{
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print("value");
                       },
@@ -164,6 +183,9 @@ class SignupScreen extends StatelessWidget{
                           borderSide: BorderSide(color: Colors.black, width: 1.0),
                         ),
                         labelText: "Address (optional)",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
@@ -173,6 +195,7 @@ class SignupScreen extends StatelessWidget{
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print(value);
                       },
@@ -190,6 +213,9 @@ class SignupScreen extends StatelessWidget{
                         ),
                         border: const OutlineInputBorder(),
                         labelText: "Password",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
                         focusedBorder: const OutlineInputBorder(
                           borderSide:
                           BorderSide(color: Colors.black, width: 1.0),
@@ -203,6 +229,7 @@ class SignupScreen extends StatelessWidget{
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print(value);
                       },
@@ -211,6 +238,9 @@ class SignupScreen extends StatelessWidget{
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: "Confirm Password",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
                           BorderSide(color: Colors.black, width: 1.0),
@@ -237,7 +267,6 @@ class SignupScreen extends StatelessWidget{
                       ),
                     ),
                   ),
-
                 ],
               ),
             ),
