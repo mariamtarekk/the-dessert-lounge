@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,7 @@ class LoginScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      controller: _emailController,
                       cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print(value);
@@ -60,6 +63,7 @@ class LoginScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      controller: _passwordController,
                       cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print(value);
@@ -124,7 +128,10 @@ class LoginScreen extends StatelessWidget {
                       color: const Color.fromRGBO(000, 000, 000, 0.3),
                       width: double.infinity,
                       child: MaterialButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          print(_emailController.text);
+                          print(_passwordController.text);
+                        },
                         child: const Text(
                           'Login',
                           style: TextStyle(

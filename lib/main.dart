@@ -5,7 +5,7 @@ import 'LoginScreen.dart';
 import 'SignupScreen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

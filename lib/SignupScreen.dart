@@ -3,9 +3,20 @@ import 'package:flutter/material.dart';
 
 class SignupScreen extends StatelessWidget{
   SignupScreen({super.key});
+
+  final _firstNameController = TextEditingController();
+  final _lastNameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _birthdayController = TextEditingController();
+  final _genderController = TextEditingController();
+  final _addressController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmedPasswordController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
   String? _selectedValue;
   final List<String> _items = ["male", "female"];
+
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +53,7 @@ class SignupScreen extends StatelessWidget{
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      controller: _firstNameController,
                       cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print("value");
@@ -65,6 +77,7 @@ class SignupScreen extends StatelessWidget{
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      controller: _lastNameController,
                       cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print("value");
@@ -88,6 +101,7 @@ class SignupScreen extends StatelessWidget{
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      controller: _emailController,
                       cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print(value);
@@ -112,11 +126,12 @@ class SignupScreen extends StatelessWidget{
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      controller: _birthdayController,
                       cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print(value);
                       },
-                      keyboardType: TextInputType.emailAddress,
+                      keyboardType: TextInputType.datetime,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
@@ -172,6 +187,7 @@ class SignupScreen extends StatelessWidget{
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      controller: _addressController,
                       cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print("value");
@@ -195,6 +211,7 @@ class SignupScreen extends StatelessWidget{
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      controller: _passwordController,
                       cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print(value);
@@ -213,7 +230,7 @@ class SignupScreen extends StatelessWidget{
                         ),
                         border: const OutlineInputBorder(),
                         labelText: "Password",
-                        labelStyle: TextStyle(
+                        labelStyle: const TextStyle(
                           color: Colors.black,
                         ),
                         focusedBorder: const OutlineInputBorder(
@@ -229,6 +246,7 @@ class SignupScreen extends StatelessWidget{
                   Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: TextFormField(
+                      controller: _confirmedPasswordController,
                       cursorColor: Colors.black,
                       onFieldSubmitted: (String value) {
                         print(value);
@@ -257,7 +275,15 @@ class SignupScreen extends StatelessWidget{
                       color: const Color.fromRGBO(000, 000, 000, 0.3),
                       width: double.infinity,
                       child: MaterialButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          print(_firstNameController.text);
+                          print(_lastNameController.text);
+                          print(_emailController.text);
+                          print(_birthdayController.text);
+                          print(_addressController.text);
+                          print(_passwordController.text);
+                          print(_confirmedPasswordController.text);
+                        },
                         child: const Text(
                           'SignUp',
                           style: TextStyle(
