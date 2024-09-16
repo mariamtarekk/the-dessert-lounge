@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:the_dessert_lounge/BirthdayPicker.dart';
 
 class SignupScreen extends StatelessWidget{
   SignupScreen({super.key});
@@ -7,11 +8,11 @@ class SignupScreen extends StatelessWidget{
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
   final _emailController = TextEditingController();
-  final _birthdayController = TextEditingController();
   final _genderController = TextEditingController();
   final _addressController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmedPasswordController = TextEditingController();
+  final _dateController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
   String? _selectedValue;
@@ -123,26 +124,12 @@ class SignupScreen extends StatelessWidget{
                   const SizedBox(
                     height: 20.0,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 50, right: 50),
-                    child: TextFormField(
-                      controller: _birthdayController,
-                      cursorColor: Colors.black,
-                      onFieldSubmitted: (String value) {
-                        print(value);
-                      },
-                      keyboardType: TextInputType.datetime,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide:
-                          BorderSide(color: Colors.black, width: 1.0),
-                        ),
-                        labelText: "Birthday",
-                        labelStyle: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 50, right: 50),
+                    child: Column(
+                      children: [
+                        // BirthdayPicker(),
+                      ],
                     ),
                   ),
                   const SizedBox(
@@ -279,7 +266,7 @@ class SignupScreen extends StatelessWidget{
                           print(_firstNameController.text);
                           print(_lastNameController.text);
                           print(_emailController.text);
-                          print(_birthdayController.text);
+                          print(_dateController.text);
                           print(_addressController.text);
                           print(_passwordController.text);
                           print(_confirmedPasswordController.text);

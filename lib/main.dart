@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_dessert_lounge/WelcomeScreen.dart';
 
+import 'HomeScreen.dart';
 import 'LoginScreen.dart';
 import 'SignupScreen.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignupScreen(),
+      home: HomeScreen(),
 
     );
   }
