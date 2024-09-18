@@ -10,7 +10,7 @@ class _CategoryBarState extends State<CategoryBar> {
   String selectedCategory = 'Dessert';
 
   // List of categories
-  final List<String> categories = ['All', 'Macarons', 'CheeseCakes', 'Cookies', 'Brownies', 'coffee'];
+  final List<String> categories = ['All', 'Macarons', 'CheeseCakes', 'Cookies', 'Brownies', 'Iced Coffee'];
 
   @override
   Widget build(BuildContext context) {
