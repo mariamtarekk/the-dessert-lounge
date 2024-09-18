@@ -7,6 +7,7 @@ class MenuItems{
   final String name;
   final String price;
   final String imagePath;
+  int counter = 1;
 
   MenuItems({
     required this.name,
@@ -14,8 +15,14 @@ class MenuItems{
     required this.imagePath,
   });
 }
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   List<MenuItems> menu = [
     MenuItems(
       name: 'Strawberry Macarons',
@@ -111,6 +118,11 @@ class HomeScreen extends StatelessWidget {
     ),
   ];
 
+  @override
+  void initState() {
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -135,7 +147,7 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: const [
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.only(right: 15, top: 15),
             child: CircleAvatar(
               radius: 30.0,
               backgroundImage: AssetImage('images/logo.jpg'),
@@ -360,13 +372,91 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 50,
+            height: 20,
           ),
           Text(
             menu.price,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
             ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: [
+              SizedBox(
+                width: 25,
+                height: 25,
+                child: FloatingActionButton(
+                  mini: true,
+                  backgroundColor: Colors.red.shade200,
+                  hoverColor: Colors.red.shade300,
+                  onPressed: (){
+                    setState(() {
+                      if(menu.counter > 1){
+                        menu.counter--;
+                      }
+                    });
+                  },
+                  child: const Icon(
+                    Icons.remove,
+                    size: 15,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Text(
+                '${menu.counter}',
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              SizedBox(
+                width: 25,
+                height: 25,
+                child: FloatingActionButton(
+                  mini: true,
+                  backgroundColor: Colors.red.shade200,
+                  hoverColor: Colors.red.shade300,
+                  onPressed: (){
+                    setState(() {
+                      menu.counter++;
+                    });
+                  },
+                  child: const Icon(
+                    Icons.add,
+                    size: 15,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 20,
+              ),
+              SizedBox(
+                width: 100,
+                height: 25,
+                child: FloatingActionButton(
+                  mini: true,
+                  shape: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: BorderSide(color: Colors.red.shade200)
+                  ),
+                  backgroundColor: Colors.red.shade200,
+                  hoverColor: Colors.red.shade300,
+                  onPressed: (){},
+                  child: const Text(
+                    'Add to cart',
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -393,5 +483,6 @@ class HomeScreen extends StatelessWidget {
       ),
     ],
   );
-  void setState(Null Function() param0) {}
+
+
 }
