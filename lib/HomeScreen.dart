@@ -8,42 +8,50 @@ class MenuItems{
   final String name;
   final String price;
   final String imagePath;
+  final String category;
   int counter = 1;
 
   MenuItems({
     required this.name,
     required this.price,
     required this.imagePath,
+    required this.category,
   });
 }
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
 
+
   List<MenuItems> macaronsMenu = [
     MenuItems(
-      name: 'Strawberry Macarons',
+      name: 'Strawberry Macaroons',
       price: 'EGP 60.00',
       imagePath: 'images/straw.jpg',
+      category: 'Macaroons',
     ),
     MenuItems(
-      name: 'Chocolate Macarons',
+      name: 'Chocolate Macaroons',
       price: 'EGP 60.00',
       imagePath: 'images/choco.jpg',
+      category: 'Macaroons',
     ),
     MenuItems(
-      name: 'Bluberry Macarons',
+      name: 'Blueberry Macaroons',
       price: 'EGP 60.00',
       imagePath: 'images/blue.jpg',
+      category: 'Macaroons',
     ),
     MenuItems(
-      name: 'RaspBerry Macarons',
+      name: 'RaspBerry Macaroons',
       price: 'EGP 60.00',
       imagePath: 'images/red.JPG',
+      category: 'Macaroons',
     ),
     MenuItems(
-      name: 'White Chocolate Macarons',
+      name: 'White Chocolate Macaroons',
       price: 'EGP 60.00',
       imagePath: 'images/white.JPG',
+      category: 'Macaroons',
     ),
   ];
 
@@ -52,16 +60,19 @@ class HomeScreen extends StatefulWidget {
       name: 'Classic Cheesecake',
       price: 'EGP 80.00',
       imagePath: 'images/classic.JPG',
+      category: 'CheeseCakes',
     ),
     MenuItems(
       name: 'Strawberry Cheesecake',
       price: 'EGP 85.00',
       imagePath: 'images/strawberry.JPG',
+      category: 'CheeseCakes',
     ),
     MenuItems(
       name: 'Blueberry Cheesecake',
       price: 'EGP 90.00',
       imagePath: 'images/blueberry.JPG',
+      category: 'CheeseCakes',
     ),
   ];
 
@@ -70,16 +81,19 @@ class HomeScreen extends StatefulWidget {
       name: 'Chocolate Chip Cookie',
       price: 'EGP 50.00',
       imagePath: 'images/chips.jpg',
+      category: 'Cookies',
     ),
     MenuItems(
       name: 'Brownie Cookie',
       price: 'EGP 60.00',
       imagePath: 'images/brown.jpg',
+      category: 'Cookies',
     ),
     MenuItems(
       name: 'Red Velvet Cookie',
       price: 'EGP 55.00',
       imagePath: 'images/redvelvet.jpg',
+      category: 'Cookies',
     ),
   ];
 
@@ -88,6 +102,7 @@ class HomeScreen extends StatefulWidget {
       name: 'Chocolate Fudge Brownie',
       price: 'EGP 80.00',
       imagePath: 'images/brownies.jpg',
+      category: 'Brownies',
     ),
   ];
 
@@ -96,21 +111,28 @@ class HomeScreen extends StatefulWidget {
       name: 'Iced Spanish Latte',
       price: 'EGP 70.00',
       imagePath: 'images/mocca.JPG',
+      category: 'Iced Coffee',
+
     ),
     MenuItems(
       name: 'Iced Caramel',
       price: 'EGP 60.00',
       imagePath: 'images/caramel.JPG',
+      category: 'Iced Coffee',
+
     ),
     MenuItems(
       name: 'Iced Latte',
       price: 'EGP 80.00',
       imagePath: 'images/latte.JPG',
+      category: 'Iced Coffee',
+
     ),
     MenuItems(
       name: 'Iced Mocha',
       price: 'EGP 75.00',
       imagePath: 'images/span.JPG',
+      category: 'Iced Coffee',
     ),
   ];
 
@@ -119,31 +141,40 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  String selectedCategory = 'All';
+  final List<String> categories = ['All', 'Macaroons', 'CheeseCakes', 'Cookies', 'Brownies', 'Iced Coffee'];
+
   List<MenuItems> macaronsMenu = [
     MenuItems(
-      name: 'Strawberry Macarons',
+      name: 'Strawberry Macaroons',
       price: 'EGP 60.00',
       imagePath: 'images/straw.jpg',
+      category: 'Macaroons',
     ),
     MenuItems(
-      name: 'Chocolate Macarons',
+      name: 'Chocolate Macaroons',
       price: 'EGP 60.00',
       imagePath: 'images/choco.jpg',
+      category: 'Macaroons',
     ),
     MenuItems(
-      name: 'Bluberry Macarons',
+      name: 'Blueberry Macaroons',
       price: 'EGP 60.00',
       imagePath: 'images/blue.jpg',
+      category: 'Macaroons',
     ),
     MenuItems(
-      name: 'Raspberry Macarons',
+      name: 'RaspBerry Macaroons',
       price: 'EGP 60.00',
       imagePath: 'images/red.JPG',
+      category: 'Macaroons',
     ),
     MenuItems(
-      name: 'White Chocolate Macarons',
+      name: 'White Chocolate Macaroons',
       price: 'EGP 60.00',
       imagePath: 'images/white.JPG',
+      category: 'Macaroons',
     ),
   ];
 
@@ -152,16 +183,19 @@ class _HomeScreenState extends State<HomeScreen> {
       name: 'Classic Cheesecake',
       price: 'EGP 80.00',
       imagePath: 'images/classic.JPG',
+      category: 'CheeseCakes',
     ),
     MenuItems(
       name: 'Strawberry Cheesecake',
       price: 'EGP 85.00',
       imagePath: 'images/strawberry.JPG',
+      category: 'CheeseCakes',
     ),
     MenuItems(
       name: 'Blueberry Cheesecake',
       price: 'EGP 90.00',
       imagePath: 'images/blueberry.JPG',
+      category: 'CheeseCakes',
     ),
   ];
 
@@ -170,16 +204,19 @@ class _HomeScreenState extends State<HomeScreen> {
       name: 'Chocolate Chip Cookie',
       price: 'EGP 50.00',
       imagePath: 'images/chips.jpg',
+      category: 'Cookies',
     ),
     MenuItems(
       name: 'Brownie Cookie',
       price: 'EGP 60.00',
       imagePath: 'images/brown.jpg',
+      category: 'Cookies',
     ),
     MenuItems(
       name: 'Red Velvet Cookie',
       price: 'EGP 55.00',
       imagePath: 'images/redvelvet.jpg',
+      category: 'Cookies',
     ),
   ];
 
@@ -188,6 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
       name: 'Chocolate Fudge Brownie',
       price: 'EGP 80.00',
       imagePath: 'images/brownies.jpg',
+      category: 'Brownies',
     ),
   ];
 
@@ -196,21 +234,28 @@ class _HomeScreenState extends State<HomeScreen> {
       name: 'Iced Spanish Latte',
       price: 'EGP 70.00',
       imagePath: 'images/mocca.JPG',
+      category: 'Iced Coffee',
+
     ),
     MenuItems(
       name: 'Iced Caramel',
       price: 'EGP 60.00',
       imagePath: 'images/caramel.JPG',
+      category: 'Iced Coffee',
+
     ),
     MenuItems(
       name: 'Iced Latte',
       price: 'EGP 80.00',
       imagePath: 'images/latte.JPG',
+      category: 'Iced Coffee',
+
     ),
     MenuItems(
       name: 'Iced Mocha',
       price: 'EGP 75.00',
       imagePath: 'images/span.JPG',
+      category: 'Iced Coffee',
     ),
   ];
 
@@ -249,10 +294,24 @@ class _HomeScreenState extends State<HomeScreen> {
       icedCoffeeMenu = widget.icedCoffeeMenu;
 
     }
-
   }
 
+  void filterCategory(String category){
+    if(category == 'All'){
+      macaronsMenu = widget.macaronsMenu;
+      cheesecakesMenu = widget.cheesecakesMenu;
+      cookiesMenu = widget.cookiesMenu;
+      browniesMenu = widget.browniesMenu;
+      icedCoffeeMenu = widget.icedCoffeeMenu;
+    }else{
+      macaronsMenu = widget.macaronsMenu.where((item) => item.category == category).toList();
+      cheesecakesMenu = widget.cheesecakesMenu.where((item) => item.category == category).toList();
+      cookiesMenu = widget.cookiesMenu.where((item) => item.category == category).toList();
+      browniesMenu = widget.browniesMenu.where((item) => item.category == category).toList();
+      icedCoffeeMenu = widget.icedCoffeeMenu.where((item) => item.category == category).toList();
 
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -349,7 +408,42 @@ class _HomeScreenState extends State<HomeScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CategoryBar(),
+                  Container(
+                    height: 40.0, // Fixed height for the category bar
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal, // Set scroll direction to horizontal
+                      itemCount: categories.length,
+                      itemBuilder: (context, index) {
+                        String category = categories[index];
+                        bool isSelected = selectedCategory == category;
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              selectedCategory = category;
+                              filterCategory(category);
+                            });
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                            margin: const EdgeInsets.only(right: 10.0), // Space between categories
+                            decoration: BoxDecoration(
+                              color: isSelected ? Colors.red.shade200 : Colors.grey.shade200, // Change background color for selected category
+                              borderRadius: BorderRadius.circular(20), // Rounded edges
+                            ),
+                            child: Center(
+                              child: Text(
+                                category,
+                                style: TextStyle(
+                                  color: isSelected ? Colors.white : Colors.black, // Change text color for selected category
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                 ],
               ),
               if(macaronsMenu.isNotEmpty)
@@ -361,7 +455,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Macarons",
+                    "Macaroons",
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
@@ -442,7 +536,7 @@ class _HomeScreenState extends State<HomeScreen> {
               if(browniesMenu.isNotEmpty)
               const SizedBox(height: 20),
               if(browniesMenu.isNotEmpty)
-                const Row(
+              const Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -502,7 +596,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget buildMenuItem(MenuItems menu) =>  Row(
     children: [
-       Column(
+      Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-
 class CategoryBar extends StatefulWidget {
   @override
   _CategoryBarState createState() => _CategoryBarState();
 }
 
 class _CategoryBarState extends State<CategoryBar> {
-  // Current selected category
+
+
   String selectedCategory = 'All';
 
   // List of categories
-  final List<String> categories = ['All', 'Macarons', 'CheeseCakes', 'Cookies', 'Brownies', 'Iced Coffee'];
+  final List<String> categories = ['All', 'Macaroons', 'CheeseCakes', 'Cookies', 'Brownies', 'Iced Coffee'];
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class _CategoryBarState extends State<CategoryBar> {
           return GestureDetector(
             onTap: () {
               setState(() {
-                selectedCategory = category; // Change the selected category when tapped
+                selectedCategory = category;
               });
             },
             child: Container(
