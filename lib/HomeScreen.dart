@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:the_dessert_lounge/CategoryBar.dart';
 
@@ -18,12 +19,7 @@ class MenuItems{
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  List<MenuItems> menu = [
+  List<MenuItems> macaronsMenu = [
     MenuItems(
       name: 'Strawberry Macarons',
       price: 'EGP 60.00',
@@ -119,8 +115,141 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  List<MenuItems> macaronsMenu = [
+    MenuItems(
+      name: 'Strawberry Macarons',
+      price: 'EGP 60.00',
+      imagePath: 'images/straw.jpg',
+    ),
+    MenuItems(
+      name: 'Chocolate Macarons',
+      price: 'EGP 60.00',
+      imagePath: 'images/choco.jpg',
+    ),
+    MenuItems(
+      name: 'Bluberry Macarons',
+      price: 'EGP 60.00',
+      imagePath: 'images/blue.jpg',
+    ),
+    MenuItems(
+      name: 'Raspberry Macarons',
+      price: 'EGP 60.00',
+      imagePath: 'images/red.JPG',
+    ),
+    MenuItems(
+      name: 'White Chocolate Macarons',
+      price: 'EGP 60.00',
+      imagePath: 'images/white.JPG',
+    ),
+  ];
+
+  List<MenuItems> cheesecakesMenu = [
+    MenuItems(
+      name: 'Classic Cheesecake',
+      price: 'EGP 80.00',
+      imagePath: 'images/classic.JPG',
+    ),
+    MenuItems(
+      name: 'Strawberry Cheesecake',
+      price: 'EGP 85.00',
+      imagePath: 'images/strawberry.JPG',
+    ),
+    MenuItems(
+      name: 'Blueberry Cheesecake',
+      price: 'EGP 90.00',
+      imagePath: 'images/blueberry.JPG',
+    ),
+  ];
+
+  List<MenuItems> cookiesMenu = [
+    MenuItems(
+      name: 'Chocolate Chip Cookie',
+      price: 'EGP 50.00',
+      imagePath: 'images/chips.jpg',
+    ),
+    MenuItems(
+      name: 'Brownie Cookie',
+      price: 'EGP 60.00',
+      imagePath: 'images/brown.jpg',
+    ),
+    MenuItems(
+      name: 'Red Velvet Cookie',
+      price: 'EGP 55.00',
+      imagePath: 'images/redvelvet.jpg',
+    ),
+  ];
+
+  List<MenuItems> browniesMenu = [
+    MenuItems(
+      name: 'Chocolate Fudge Brownie',
+      price: 'EGP 80.00',
+      imagePath: 'images/brownies.jpg',
+    ),
+  ];
+
+  List<MenuItems> icedCoffeeMenu = [
+    MenuItems(
+      name: 'Iced Spanish Latte',
+      price: 'EGP 70.00',
+      imagePath: 'images/mocca.JPG',
+    ),
+    MenuItems(
+      name: 'Iced Caramel',
+      price: 'EGP 60.00',
+      imagePath: 'images/caramel.JPG',
+    ),
+    MenuItems(
+      name: 'Iced Latte',
+      price: 'EGP 80.00',
+      imagePath: 'images/latte.JPG',
+    ),
+    MenuItems(
+      name: 'Iced Mocha',
+      price: 'EGP 75.00',
+      imagePath: 'images/span.JPG',
+    ),
+  ];
+
+  @override
   void initState() {
     super.initState();
+  }
+
+  void filterMenu(String query){
+    if (query.isNotEmpty) {
+      macaronsMenu = widget.macaronsMenu
+          .where((item) =>
+          item.name.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+      cheesecakesMenu = widget.cheesecakesMenu
+          .where((item) =>
+          item.name.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+      cookiesMenu = widget.cookiesMenu
+          .where((item) =>
+          item.name.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+      browniesMenu = widget.browniesMenu
+          .where((item) =>
+          item.name.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+      icedCoffeeMenu = widget.icedCoffeeMenu
+          .where((item) =>
+          item.name.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    }else{
+      macaronsMenu = widget.macaronsMenu;
+      cheesecakesMenu = widget.cheesecakesMenu;
+      cookiesMenu = widget.cookiesMenu;
+      browniesMenu = widget.browniesMenu;
+      icedCoffeeMenu = widget.icedCoffeeMenu;
+
+    }
+
   }
 
 
@@ -177,8 +306,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: TextField(
                   controller: _searchController,
-                  onSubmitted: (String){
-                    print(_searchController.text);
+                  onChanged: (String query){
+                    setState(() {
+                      filterMenu(query);
+                    });
                   },
                   cursorColor: Colors.red.shade200,
                   decoration: InputDecoration(
@@ -221,9 +352,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   CategoryBar(),
                 ],
               ),
+              if(macaronsMenu.isNotEmpty)
               const SizedBox(
                 height: 30,
               ),
+              if(macaronsMenu.isNotEmpty)
               const Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -242,17 +375,19 @@ class _HomeScreenState extends State<HomeScreen> {
               ListView.separated(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemBuilder: (context, index) => buildMenuItem(menu[index]),
+                itemBuilder: (context, index) => buildMenuItem(macaronsMenu[index]),
                 separatorBuilder: (context, index) => Container(
                   height: 1.0,
                   width: double.infinity,
                   color: Colors.black12,
                 ),
-                itemCount: menu.length,
+                itemCount: macaronsMenu.length,
               ),
+              if(cheesecakesMenu.isNotEmpty)
               const SizedBox(
                 height: 20,
               ),
+              if(cheesecakesMenu.isNotEmpty)
               const Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -277,7 +412,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 itemCount: cheesecakesMenu.length,
               ),
+              if(cookiesMenu.isNotEmpty)
               const SizedBox(height: 20),
+              if(cookiesMenu.isNotEmpty)
               const Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -302,8 +439,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 itemCount: cookiesMenu.length,
               ),
+              if(browniesMenu.isNotEmpty)
               const SizedBox(height: 20),
-              const Row(
+              if(browniesMenu.isNotEmpty)
+                const Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -327,7 +466,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 itemCount: browniesMenu.length,
               ),
+              if(icedCoffeeMenu.isNotEmpty)
               const SizedBox(height: 20),
+              if(icedCoffeeMenu.isNotEmpty)
               const Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

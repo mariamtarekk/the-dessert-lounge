@@ -7,7 +7,7 @@ class CategoryBar extends StatefulWidget {
 
 class _CategoryBarState extends State<CategoryBar> {
   // Current selected category
-  String selectedCategory = 'Dessert';
+  String selectedCategory = 'All';
 
   // List of categories
   final List<String> categories = ['All', 'Macarons', 'CheeseCakes', 'Cookies', 'Brownies', 'Iced Coffee'];
