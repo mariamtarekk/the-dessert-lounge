@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'MenuItem.dart';
-import 'Category.dart';
+import '../../models/MenuItem.dart';
+import '../../models/Category.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -103,13 +103,13 @@ class HomeScreen extends StatefulWidget {
       menu: [
         MenuItem(
           name: 'Iced Spanish Latte',
-          price: 'EGP 70.00',
+          price: 'EGP 75.00',
           imagePath: 'images/mocha.JPG',
           category: 'Iced Coffee',
         ),
         MenuItem(
           name: 'Iced Caramel',
-          price: 'EGP 60.00',
+          price: 'EGP 85.00',
           imagePath: 'images/caramel.JPG',
           category: 'Iced Coffee',
         ),

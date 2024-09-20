@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:the_dessert_lounge/BirthdayPicker.dart';
+import '../../shared/components/components.dart';
 
 class SignupScreen extends StatelessWidget{
   SignupScreen({super.key});
@@ -124,11 +123,11 @@ class SignupScreen extends StatelessWidget{
                   const SizedBox(
                     height: 20.0,
                   ),
-                  const Padding(
+                   Padding(
                     padding: EdgeInsets.only(left: 50, right: 50),
                     child: Column(
                       children: [
-                        // BirthdayPicker(),
+                         BirthdayPicker(_dateController),
                       ],
                     ),
                   ),
