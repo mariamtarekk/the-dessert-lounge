@@ -9,3 +9,4 @@ class Category {
     required this.menu,
   });
 }
+

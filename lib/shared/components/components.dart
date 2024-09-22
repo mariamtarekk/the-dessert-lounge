@@ -10,7 +10,7 @@ class BirthdayPicker extends StatefulWidget {
 }
 
 class _BirthdayPickerState extends State<BirthdayPicker> {
-  final _dateController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(

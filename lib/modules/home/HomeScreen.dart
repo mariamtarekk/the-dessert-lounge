@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_dessert_lounge/modules/Cart/CartScreen.dart';
 import '../../models/MenuItem.dart';
 import '../../models/Category.dart';
 
@@ -141,6 +142,8 @@ class _HomeScreenState extends State<HomeScreen> {
   late List<String> _categoriesOptions;
   late List<Category> _categories;
 
+  int current = 0;
+
 
   @override
   void initState() {
@@ -152,7 +155,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -184,22 +186,21 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.white,
         elevation: 0.0,
       ),
-      body: SingleChildScrollView(
+      body: (current == 0) ? SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 25),
           child: Column(
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.white, // Background color of the search bar
-                  borderRadius: BorderRadius.circular(10), // Rounded corners
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.5), // Shadow color
-                      spreadRadius: 2, // How much the shadow spreads
-                      blurRadius: 10, // The blur effect of the shadow
-                      offset: const Offset(
-                          0, 3), // The position of the shadow (x, y)
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 10,
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),
@@ -261,6 +262,30 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
+      ) : const CartScreen(),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.red.shade200,
+        type: BottomNavigationBarType.fixed,
+        currentIndex: current,
+        onTap: (index){
+          setState(() {
+              current = index;
+          });
+        },
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home_filled,
+              ),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.shopping_cart,
+              ),
+              label: 'Cart',
+            ),
+          ],
       ),
     );
   }
@@ -418,8 +443,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildCategoryBar() => SizedBox(
     height: 40.0, // Fixed height for the category bar
     child: ListView.builder(
-      scrollDirection:
-      Axis.horizontal, // Set scroll direction to horizontal
+      scrollDirection: Axis.horizontal, // Set scroll direction to horizontal
       itemCount: _categoriesOptions.length,
       itemBuilder: (context, index) {
         String category = _categoriesOptions[index];
@@ -499,6 +523,4 @@ class _HomeScreenState extends State<HomeScreen> {
       return const SizedBox();
     }
   }
-
-
 }
